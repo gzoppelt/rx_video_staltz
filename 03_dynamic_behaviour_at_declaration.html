@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>RsJS</title>
+
+    <script src="node_modules/rx/dist/rx.all.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+
+    <script src="js/03_dynamic_behaviour_at_declaration.js"></script>
+</head>
+<body>
+    <h2>03 - Dynamic Behaviour is Specified at Time of Declaration</h2>
+    <hr>
+    RsJS allows you to specify the "dynamic behaviour" of a value
+    completely at the time of declaration,<br>
+    meaning when a changes, b will change as well:<br><br>
+    <code>
+        var streamA = Rx.Observable.of(3, 4);   //future change of a is described at declaration<br>
+        <b>var streamB = streamA.map(a => 10 * a);</b>        <br>
+        streamB.subscribe(b => console.log(b));
+    </code>
+    <hr>
+    Output again to be seen in console: F12
+</body>
+</html>

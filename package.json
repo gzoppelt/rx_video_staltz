@@ -1,0 +1,9 @@
+{
+	"name": "rx",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+	       "rx": "~4.0.0",
+		   "jquery": "~2.1.4"
+    }
+}

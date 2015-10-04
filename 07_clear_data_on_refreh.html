@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>RsJS</title>
+    <script src="node_modules/rx/dist/rx.all.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="js/07_clear_data_while_loading_with_startWith.js"></script>
+    <style>
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h2>07 - startWith - Clear Data while Loading or Refreshing</h2>
+    <hr>
+    <code>
+        function createSuggestionStream(responseStream) {
+            return responseStream.map(
+                listUser => listUser[Math.floor(Math.random() * listUser.length)]
+            )<b>
+            .startWith(null)
+            .merge(refreshClickStream.map(event => null))  </b>
+            ;
+        }
+    </code>
+    <hr>
+    <div class="container">
+        <div class="header">
+            <h3>Who to follow</h3>
+            <a class="refresh" href="#">Refresh</a>
+        </div>
+        <ul class="suggestions">
+            <li class="suggestion1">
+                <img >
+                <a href="#" target="_blank" class="username">dummy</a>
+                <a href="#" class="close close1">x</a>
+            </li>
+            <li class="suggestion2">
+                <img >
+                <a href="#" target="_blank" class="username">dummy</a>
+                <a href="#" class="close close2">x</a>
+            </li>
+            <li class="suggestion3">
+                <img >
+                <a href="#" target="_blank" class="username">dummy</a>
+                <a href="#" class="close close3">x</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
